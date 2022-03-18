@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    transition: .2s;
+}
+
+.bg-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 10px;
+}
+
+.keyboard-bg {
+    max-width: 1000px;
+    width: 100%;
+    background-color: #e7e7e7;
+    overflow: hidden;
+    position: relative;
+}
+
+.rows {
+    display: flex;
+}
+
+.keys {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    transition: .2s;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.backspace {
+    width: 120px;
+}
+
+.tab {
+    width: 90px;
+}
+
+.slash {
+    width: 90px;
+}
+
+.capslock {
+    width: 120px;
+}
+
+.enter{
+    width: 120px;
+}
+.shift {
+    width: 125px;
+}
+
+.space{
+    max-width: 600px;
+    width: 100%;
+}
+
+.text{
+    max-width: 1000px;
+    width: 100%;
+    height: 90px;
+    margin-bottom: 30px;
+    font-size: 26px;
+    background-color: #f7f7f7;
+    padding: 10px;
+    outline: none;
+}
+
+.keys.active{
+    background-color: #333;
+    color: #ffffff;
+}
+
+.keys.remove{
+    animation: key-animation 0.5s forwards;
+}
+
+@keyframes key-animation {
+    0% {
+        background-color: #333;
+        color: #ffffff;
+    }
+    100% {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+.change-color{
+    max-width: 1000px;
+    width: 100vw;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.colors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.colors-input {
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+}
+
+.bg-color-changer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
