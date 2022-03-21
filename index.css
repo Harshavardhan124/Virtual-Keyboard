@@ -125,7 +125,9 @@ body {
     background-color: transparent;
     outline: none;
     border: none;
+    border-radius: 10px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .bg-color-changer {

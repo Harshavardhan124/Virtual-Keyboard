@@ -25,7 +25,6 @@ let isCaps = false;
 function onClickKey(element){
     if(!element.classList.contains('special')) {
         let prevValue = textEl.value;
-        console.log(element.innerText);
         if(isCaps){
             textEl.value = prevValue + element.innerText;
         } else {
@@ -46,6 +45,18 @@ function onClickKey(element){
                 isCaps = true;
                 element.classList.add('active');
             }
+        }
+
+        if(element.classList.contains('backspace')) {
+            textEl.value = textEl.value.substring(0, textEl.value.length-1);
+        }
+
+        if(element.classList.contains('enter')) {
+            textEl.value += "\n";
+        }
+
+        if(element.classList.contains('space')) {
+            textEl.value += " ";
         }
     }
 
