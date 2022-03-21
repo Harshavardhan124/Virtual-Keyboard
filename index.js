@@ -13,14 +13,23 @@ let colorInputEl = document.querySelector('.colors-input');
 let bgColorChangerEl = document.querySelector('.bg-color-changer');
 
 textEl.focus();
+
+function moveCursorToEnd(){
+    setTimeout(function(){
+        textEl.selectionStart = textEl.selectionEnd = textEl.value.length;
+        textEl.focus();
+    }, 0)
+}
+
 let isCaps = false;
 function onClickKey(element){
     if(!element.classList.contains('special')) {
         let prevValue = textEl.value;
+        console.log(element.innerText);
         if(isCaps){
-            textEl.innerText = prevValue + element.innerText;
+            textEl.value = prevValue + element.innerText;
         } else {
-            textEl.innerText = prevValue + element.innerText.toLowerCase();
+            textEl.value = prevValue + element.innerText.toLowerCase();
         }
         element.classList.add('active');
         element.classList.add('remove');
@@ -30,11 +39,17 @@ function onClickKey(element){
         }, 100);
     } else {
         if(element.classList.contains('capslock')) {
-            isCaps = true;
-            element.classList.toggle('active');
+            if(element.classList.contains('active')) {
+                isCaps=false;
+                element.classList.remove('active');
+            } else {
+                isCaps = true;
+                element.classList.add('active');
+            }
         }
     }
-    textEl.focus();
+
+    moveCursorToEnd();
 }
 
 
@@ -62,7 +77,8 @@ window.addEventListener('keydown', function(e){
             leftShiftEl.classList.remove('active');
         }
         if (e.code === 'CapsLock') {
-            capsLockEl.classList.toggle('active');
+            capsLockEl.classList.add('active');
+            isCaps = true;
         }
         if (e.code === 'ControlLeft') {
             leftCtrlEl.classList.add('active');
